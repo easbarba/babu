@@ -1,1 +1,17 @@
 @import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
+:root {
+    --lightblue: #cde9f0;
+    --titles: #9c794a;
+}
+
+body {
+    background-color: var(--lightblue);
+    font-family: "Montserrat Regular";
+    color: var(--titles);
+}
+
+h3 {
+    font-weight: bolder;
+}
