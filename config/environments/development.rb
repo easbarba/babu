@@ -1,3 +1,5 @@
+require 'socket'
+require 'ipaddr'
 require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
@@ -72,8 +74,9 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # Explicitly allow IP in development
-  config.web_console.allowed_ips = '172.21.0.1'
-
+  config.web_console.allowed_ips = Socket.ip_address_list.reduce([]) do |res, addrinfo|
+    addrinfo.ipv4? ? res << IPAddr.new(addrinfo.ip_address).mask(24) : res
+  end
   # Uncomment if you wish to allow Action Cable access from any origin.
   config.action_cable.disable_request_forgery_protection = true
 end
