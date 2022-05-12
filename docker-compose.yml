@@ -21,13 +21,12 @@ services:
       - WEBPACKER_DEV_SERVER_HOST=webpack
 
   webpack:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     command: ./bin/webpack-dev-server
     ports:
       - 3035:3035
     volumes:
+      - ./app:/bindmount:rw
       - node_modules:/app/node_modules
     env_file:
       - .env/development/web
