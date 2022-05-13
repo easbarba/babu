@@ -23,5 +23,7 @@
      <%#= @post.published_at %>
      </p>
 -->
-<%= link_to 'Editar', edit_post_path(@post) %> |
+<% if user_signed_in? %>
+  <%= link_to 'Editar', edit_post_path(@post) %> |
+<% end %>
 <%= link_to 'Voltar', posts_path %>
