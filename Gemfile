@@ -19,7 +19,9 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 
 # Simple Mail Transfer Protocol Client
-gem 'net-smtp', '~> 0.3.1', require: false
+gem 'net-imap', '~> 0.2.3'
+gem 'net-pop', '~> 0.1.1'
+gem 'net-smtp', '~> 0.3.1'
 
 # Flexible authentication solution for Rails with Warden
 gem 'devise', '~> 4.8'
