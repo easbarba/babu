@@ -1,29 +1,13 @@
-<p>
-  <strong>Titulo:</strong>
-  <%= @post.title %>
-</p>
+<div>
+  <h2><%= @post.title %></h2>
+  <p><%= @post.body %></p>
+  <% if user_signed_in? %>
+    <td><%= link_to 'Editar', edit_post_path(post) %></td>
+    <td><%= link_to 'Deletar', post, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+  <% end %>
 
-<p>
-  <strong>Aonde:</strong>
-  <%= @post.location %>
-</p>
-
-<!-- <p>
-     <strong>Excerpt:</strong>
-     <%#=post.excerpt %>
-     </p>
--->
-<p>
-  <strong>Estoria:</strong>
-  <%= @post.body %>
-</p>
-
-<!-- <p>
-     <strong>Published at:</strong>
-     <%#= @post.published_at %>
-     </p>
--->
-<% if user_signed_in? %>
-  <%= link_to 'Editar', edit_post_path(@post) %> |
-<% end %>
-<%= link_to 'Voltar', posts_path %>
+  <% if user_signed_in? %>
+    <%= link_to 'Editar', edit_post_path(@post), class: "btn btn-primary" %> |
+  <% end %>
+  <%= link_to 'Voltar', posts_path, class: "btn btn-primary" %>
+</div>
