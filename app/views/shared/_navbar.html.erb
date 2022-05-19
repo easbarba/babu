@@ -1,13 +1,10 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-        <%= link_to "Babu", '/', id: "logo", class: 'navbar-brand' %>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <%= link_to "Babu", root_path, id: "logo", class: 'navbar-brand' %>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a href="/posts" class="nav-link">Estórias</a>
+                    <%= link_to 'Estórias', posts_path, class: "nav-link" %>
                 </li>
             </ul>
             <form class="d-flex" role="search">
