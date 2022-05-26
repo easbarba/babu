@@ -3,7 +3,7 @@
   <p><small class="opacity-70 text-nowrap"><%= @post.user.name %></small></p>
   <p><%= @post.body %></p>
 
-  <% if user_signed_in? %>
+  <% if user_signed_in? && current_user == @post.user %>
     <%= link_to 'Editar', edit_post_path(@post), class: "btn btn-warning" %>
     <%= link_to 'Deletar', @post, method: :delete, class: "btn btn-warning", data: { confirm: 'Tem certeza?' } %>
   <% end %>
