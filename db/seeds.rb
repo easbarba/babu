@@ -17,5 +17,15 @@ root.posts.create!(title: 'three',
 root.posts.create!(title: 'four',
                    body: 'Suspendisse ut est at est feugiat aliquam eu at nulla. Nullam sagittis eget eros tincidunt congue. Nam rutrum velit id malesuada porta. Nulla nec faucibus orci. Mauris nec augue et turpis congue tempor vel eget arcu. Morbi elementum vestibulum placerat. Quisque pharetra lorem id posuere elementum. Vivamus rutrum arcu ac eros mattis condimentum. Duis sit amet vestibulum leo. Suspendisse ac lacus lacinia, condimentum quam ut, auctor ligula. Mauris euismod porttitor erat in interdum. Fusce porta dolor eu metus faucibus posuere ut quis sapien. Nunc at pretium velit. Donec vulputate nunc lacus, et maximus tellus mattis sit amet.')
 
+# Secondary User
+unless User.find_by name: :raiz
+  User.create! name: 'raiz', surname: 'solo', email: 'raiz@raiz.com', password: 'raizraiz'
+end
+
+root = User.find_by name: :raiz
+
 root.posts.create!(title: 'five',
-                   body: 'Aliquam a enim ac orci pharetra tristique eget at mi. Mauris non dolor semper, viverra enim in, euismod nunc. Morbi dignissim posuere nunc, sit amet porttitor mi ultricies eget. Proin quis ligula metus. Fusce at neque at dui consectetur iaculis. Ut tempor egestas risus, at hendrerit urna vulputate quis. Curabitur posuere purus odio, a rhoncus enim molestie ac. Nam pharetra facilisis nibh ut vulputate. Pellentesque molestie velit in libero molestie bibendum. Quisque tristique, lectus sit amet ultrices dapibus, sem mauris pellentesque nibh, ac porta libero arcu molestie sapien. Nunc molestie porta est et ullamcorper. Morbi congue elit justo, ac placerat lectus vulputate a. Proin ut ullamcorper tellus, a hendrerit ex. Etiam auctor eu tellus a pharetra. Suspendisse fringilla, lectus pharetra sollicitudin rutrum, neque quam sagittis libero, eu commodo libero diam ac nulla.')
+                   body: 'Ut sed est et libero ultrices dignissim. Curabitur condimentum nulla non tortor vulputate dignissim. Quisque dictum purus augue, at auctor dui feugiat nec. Mauris nunc massa, mattis eget pretium eu, cursus sed magna. Etiam sit amet nisl quam. Nam convallis, felis sed posuere finibus, elit nisl tincidunt orci, quis feugiat felis lectus quis nibh. Donec commodo felis nec cursus finibus. Duis non interdum magna.')
+
+root.posts.create!(title: 'six',
+                   body: 'Curabitur in odio a erat ornare imperdiet. Nunc convallis laoreet erat, non mollis diam ultrices non. Ut fringilla laoreet arcu. In aliquet lectus consequat nulla blandit, non consectetur felis lacinia. Integer purus dolor, egestas sed lectus a, molestie imperdiet neque. Sed non vulputate sem. Sed metus orci, molestie sed congue sed, ultrices ac neque. Vestibulum euismod lacus a erat tempor, eget lacinia lorem blandit. Maecenas quam tortor, pellentesque quis sodales sit amet, iaculis eu urna. Curabitur varius ante tincidunt ante vulputate malesuada. In posuere, neque ac pretium mollis, leo nibh imperdiet ex, in tincidunt quam lectus sit amet nibh. Donec venenatis nec nulla id egestas. Quisque faucibus sapien urna, sit amet vehicula nunc luctus ac. Nulla porta neque ac pulvinar accumsan. Donec at turpis quis nisl feugiat laoreet. Sed nec scelerisque ante, eget gravida lacus. ')
