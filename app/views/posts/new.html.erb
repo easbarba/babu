@@ -1,4 +1,5 @@
 <h1>Nova estória</h1>
+<p><small class="opacity-70 text-nowrap"><%= current_user.name %></small></p>
 
 <%= render 'form', post: @post, class: "btn btn-primary" %>
 <%= link_to 'Voltar', posts_path, class: "btn btn-primary" %>

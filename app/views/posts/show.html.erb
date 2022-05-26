@@ -1,9 +1,12 @@
 <div>
   <h2><%= @post.title %></h2>
+  <p><small class="opacity-70 text-nowrap"><%= @post.user.name %></small></p>
   <p><%= @post.body %></p>
+
   <% if user_signed_in? %>
-    <%= link_to 'Editar', edit_post_path(@post), class: "btn btn-primary" %>
-    <%= link_to 'Deletar', @post, method: :delete, class: "btn btn-primary", data: { confirm: 'Tem certeza?' } %>
-    <%= link_to 'Voltar', posts_path, class: "btn btn-primary" %>
+    <%= link_to 'Editar', edit_post_path(@post), class: "btn btn-warning" %>
+    <%= link_to 'Deletar', @post, method: :delete, class: "btn btn-warning", data: { confirm: 'Tem certeza?' } %>
   <% end %>
+
+  <%= link_to 'Voltar', posts_path, class: "btn btn-primary" %>
 </div>

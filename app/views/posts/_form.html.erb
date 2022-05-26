@@ -11,24 +11,24 @@
     </div>
   <% end %>
 
-  <div class="form-floating">
+  <div>
     <%#= form.label :titulo %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, placeholder: "titulo",  class: "form-floating" %>
   </div>
 
-  <div class="field">
+  <!-- <div class="field form-floating"> -->
     <%#= form.label :aonde %>
-    <%= form.text_field :location %>
-  </div>
+    <%#= form.text_field :location %>
+  <!-- </div> -->
 
   <!-- <div class="field"> -->
   <%#= form.label :excerpt %>
   <%#= form.text_field :excerpt %>
   <!-- </div> -->
 
-  <div class="field">
+  <div class="field form-floating">
     <%#= form.label :estoria %>
-    <%= form.text_area :body %>
+    <%= form.text_area :body, placeholder: "estoria" %>
   </div>
 
   <!-- <div class="field"> -->
@@ -37,6 +37,6 @@
   <!-- </div> -->
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Enviar', class: "btn btn-warning" %>
   </div>
 <% end %>

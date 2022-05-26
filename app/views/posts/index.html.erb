@@ -5,14 +5,12 @@
       <div>
         <h6 class="mb-0"><%= post.title %></h6>
         <p class="mb-0 opacity-75"><%= post.body.truncate 80 %></p>
-    </div>
-      <small class="opacity-50 text-nowrap">now</small>
+      </div>
+      <small class="opacity-50 text-nowrap"><%= post.user.name %></small>
     </div>
   </a>
 <% end %>
 
-
-<br>
 <% if user_signed_in? %>
   <%= link_to 'Nova estória', new_post_path, class: 'btn btn-primary' %>
 <% end %>
