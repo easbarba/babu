@@ -11,30 +11,30 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :titulo %>
+  <div class="form-floating">
+    <%#= form.label :titulo %>
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :aonde %>
+    <%#= form.label :aonde %>
     <%= form.text_field :location %>
   </div>
 
   <!-- <div class="field"> -->
-    <%#= form.label :excerpt %>
-    <%#= form.text_field :excerpt %>
-    <!-- </div> -->
+  <%#= form.label :excerpt %>
+  <%#= form.text_field :excerpt %>
+  <!-- </div> -->
 
   <div class="field">
-    <%= form.label :estoria %>
+    <%#= form.label :estoria %>
     <%= form.text_area :body %>
   </div>
 
   <!-- <div class="field"> -->
-    <%#= form.label :published_at %>
-    <%#= form.datetime_select :published_at %>
-    <!-- </div> -->
+  <%#= form.label :published_at %>
+  <%#= form.datetime_select :published_at %>
+  <!-- </div> -->
 
   <div class="actions">
     <%= form.submit %>
