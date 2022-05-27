@@ -1,6 +1,6 @@
 <div>
   <h2><%= @post.title %></h2>
-  <p><small class="opacity-70 text-nowrap"><%= @post.user.name %></small></p>
+  <p><small class="opacity-70 text-nowrap"><%= @post.user.name %> | <%= @post.created_at.to_date %></small></p>
   <p><%= @post.body %></p>
 
   <% if user_signed_in? && current_user == @post.user %>
