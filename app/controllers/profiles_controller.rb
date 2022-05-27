@@ -1,7 +1,9 @@
 class ProfilesController < ApplicationController
-  before_action :set_post, only: %i[show index]
+  before_action :set_post, only: %i[show]
 
-  def index; end
+  def index
+    @profiles = Post.all
+  end
 
   def show; end
 
@@ -9,6 +11,6 @@ class ProfilesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_post
-    @profile = current_user.profile
+    @profile = Profile.find(params[:id])
   end
 end
