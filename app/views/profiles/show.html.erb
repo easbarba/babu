@@ -1,0 +1,6 @@
+<div>
+  <h4 class="display-5"><%= @profile.name.capitalize %></h4>
+  <p><%= @profile.bio %></p>
+
+  <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: "btn btn-warning" %>
+</div>

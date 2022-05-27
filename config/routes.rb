@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
-  root to: "welcome#index"
+  get 'profiles/index'
+  root to: 'welcome#index'
+  get 'welcome/index'
+  get 'profile/index'
 
-  # welcome
-  get "welcome/index"
-
-  # posts
   resources :posts
-
-  # users
+  resources :profiles
   devise_for :users
 end
