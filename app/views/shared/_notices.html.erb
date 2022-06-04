@@ -1,7 +1,10 @@
-<% unless notice.nil? %>
-    <p class="notice alert-primary text-bold"><%= notice %></p>
+<% if notice.present? %>
+<aside class="alert alert-info">
+    <%= notice %>
+</aside>
 <% end %>
-
-<% unless alert.nil? %>
-    <p class="alert alert-danger text-bold" "><%= alert %></p>
+<% if alert.present? %>
+<aside class="alert alert-danger">
+    <%= alert %>
+</aside>
 <% end %>
