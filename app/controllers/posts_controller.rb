@@ -1,9 +1,11 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
+  PAGE_SIZE = 8
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+    current_page = (params[:page] || 0).to_i
+    @posts = Post.order(created_at: :desc).page(current_page).per 5
   end
 
   # GET /posts/1 or /posts/1.json
