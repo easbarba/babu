@@ -9,7 +9,7 @@
   </div>
 </div>
 
-<% if user_signed_in? && current_user == @post.user %>
+<% if @all_permissions %>
   <%= link_to 'Editar', edit_post_path(@post), class: "btn btn-warning" %>
   <%= link_to 'Deletar', @post, method: :delete, class: "btn btn-warning", data: { confirm: 'Tem certeza?' } %>
 <% end %>

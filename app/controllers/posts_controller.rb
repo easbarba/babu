@@ -2,16 +2,14 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
   before_action :authenticate_user!, only: %i[create update edit new destroy]
 
-  # TODO: provide a filter to 'display only current user posts'
   # GET /posts or /posts.json
   def index
-    all_posts = Post.all
-
-    current_posts = user_signed_in? ? current_user.posts : Post.all
+    show_only_user_posts = false # TODO: provide a filter to 'display only current user posts'
+    current_posts = show_only_user_posts ? current_user.posts : Post.all
     current_page = (params[:page] || 0).to_i
 
-    @posts = all_posts.order(created_at: :desc)
-                      .page(current_page).per 5
+    @posts = current_posts.order(created_at: :desc)
+                          .page(current_page).per 5
   end
 
   # GET /posts/1 or /posts/1.json
@@ -67,13 +65,13 @@ class PostsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_post
+    # current post as anonimous reader
     current_post = Post.find(params[:id])
 
-    @post = if user_signed_in? and current_user == current_post.user_id
-              current_user.posts.find(params[:id])
-            else
-              current_post
-            end
+    # user is signed in? and is it the current post author?
+    @all_permissions = user_signed_in? && current_user.id == current_post.user_id
+
+    @post = @all_permissions ? current_user.posts.find(params[:id]) : current_post
   end
 
   # Only allow a list of trusted parameters through.
