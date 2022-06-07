@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
+  before_action :authenticate_user!, only: %i[create update edit new destroy]
+
   PAGE_SIZE = 8
 
   # GET /posts or /posts.json
@@ -21,7 +23,7 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
-    @post = current_user.posts.new(post_params)
+    @post = Post.new(post_params, user: current_user)
 
     respond_to do |format|
       if @post.save
@@ -66,6 +68,6 @@ class PostsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def post_params
-    params.require(:post).permit(:title, :location, :excerpt, :body, :published_at)
+    params.require(:post).permit(:title, :location, :excerpt, :body, :published_at, :user)
   end
 end
