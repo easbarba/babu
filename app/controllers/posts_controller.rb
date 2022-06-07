@@ -2,10 +2,10 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
   before_action :authenticate_user!, only: %i[create update edit new destroy]
 
+  # TODO: provide a filter to 'display only current user posts'
   # GET /posts or /posts.json
   def index
-    all_posts = Post.all # TODO: display articles for logged in users too.
-    # TODO: rovide a filter to 'display only current user posts'
+    all_posts = Post.all
 
     current_posts = user_signed_in? ? current_user.posts : Post.all
     current_page = (params[:page] || 0).to_i
