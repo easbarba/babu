@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     current_page = (params[:page] || 0).to_i
-    @posts = current_user.posts.order(created_at: :desc).page(current_page).per 5
+    @posts = Post.all.order(created_at: :desc).page(current_page).per 5
   end
 
   # GET /posts/1 or /posts/1.json
