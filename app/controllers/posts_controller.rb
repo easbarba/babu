@@ -4,8 +4,14 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
+    all_posts = Post.all # TODO: display articles for logged in users too.
+    # TODO: rovide a filter to 'display only current user posts'
+
+    current_posts = user_signed_in? ? current_user.posts : Post.all
     current_page = (params[:page] || 0).to_i
-    @posts = Post.all.order(created_at: :desc).page(current_page).per 5
+
+    @posts = all_posts.order(created_at: :desc)
+                      .page(current_page).per 5
   end
 
   # GET /posts/1 or /posts/1.json
@@ -61,7 +67,13 @@ class PostsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_post
-    @post = current_user.posts.find(params[:id])
+    current_post = Post.find(params[:id])
+
+    @post = if user_signed_in? and current_user == current_post.user_id
+              current_user.posts.find(params[:id])
+            else
+              current_post
+            end
   end
 
   # Only allow a list of trusted parameters through.
