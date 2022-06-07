@@ -5,7 +5,7 @@
       <p><%= @profile.bio %></p>
 
       <% if @all_permissions %>
-        <%= link_to 'Edit', edit_profile_path, class: "btn btn-primary" %>
+        <%= link_to 'Editar', edit_profile_path, class: "btn btn-primary" %>
         <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: "btn btn-warning" %>
       <% end %>
     </div>

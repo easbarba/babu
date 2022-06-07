@@ -17,7 +17,7 @@
 
             <div class="text-end">
                 <% if user_signed_in? %>
-                    <%= link_to current_user.name.capitalize, profile_path(id: current_user.profile.id), class: "btn btn-primary" %>
+                    <%= link_to current_user.name.capitalize, profile_path(current_user), class: "btn btn-primary" %>
                 <% else %>
                     <%= link_to 'Entrar', new_user_session_path, class: "btn btn-outline-primary me-2" %>
                     <%= link_to 'Registar', new_user_registration_path, class: "btn btn-primary" %>
