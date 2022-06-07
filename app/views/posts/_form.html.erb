@@ -11,32 +11,38 @@
     </div>
   <% end %>
 
-  <div>
-    <%#= form.label :titulo %>
-    <%= form.text_field :title, placeholder: "titulo",  class: "form-floating" %>
-  </div>
+  <div class="card mb-2 mt-2">
+    <div class="card-body">
+      <h2 class="card-title"><%= main_title %></h2>
+      <div class="form-group">
+        <%#= form.label :titulo %>
+        <%= form.text_field :title, placeholder: "titulo",  class: "form-control" %>
+      </div>
 
-  <!-- <div class="field form-floating"> -->
-    <%#= form.label :aonde %>
-    <%#= form.text_field :location %>
-  <!-- </div> -->
+      <div class="form-group">
+        <%#= form.label :estoria %>
+        <%= form.text_area :body, placeholder: "estoria", class: 'form-control' %>
+      </div>
 
-  <!-- <div class="field"> -->
-  <%#= form.label :excerpt %>
-  <%#= form.text_field :excerpt %>
-  <!-- </div> -->
-
-  <div class="field form-floating">
-    <%#= form.label :estoria %>
-    <%= form.text_area :body, placeholder: "estoria" %>
-  </div>
-
-  <!-- <div class="field"> -->
-  <%#= form.label :published_at %>
-  <%#= form.datetime_select :published_at %>
-  <!-- </div> -->
-
-  <div class="actions">
-    <%= form.submit 'Enviar', class: "btn btn-warning" %>
+      <div class="actions">
+        <%= form.submit 'Enviar', class: "btn btn-warning btn-block mt-2" %>
+      </div>
+    </div>
   </div>
 <% end %>
+
+<!-- <div class="field form-floating"> -->
+<!-- <%#= form.label :aonde %> -->
+<!-- <%#= form.text_field :location %> -->
+<!-- </div> -->
+
+<!-- <div class="field"> -->
+<!-- <%#= form.label :excerpt %> -->
+<!-- <%#= form.text_field :excerpt %> -->
+<!-- </div> -->
+
+
+<!-- <div class="field"> -->
+<!-- <%#= form.label :published_at %> -->
+<!-- <%#= form.datetime_select :published_at %> -->
+<!-- </div> -->

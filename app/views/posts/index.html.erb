@@ -11,9 +11,10 @@
   <% end %>
 <% end %>
 
-<!-- pagination -->
+<!-- PAGINATION-BEGIN -->
 <%= link_to_next_page @posts, 'antigas', class: 'btn btn-outline-primary' %>
 <%= link_to_previous_page @posts, 'novas', class: 'btn btn-outline-secondary' %>
+<!-- PAGINATION-END -->
 
 <% if user_signed_in? %>
   <%= link_to 'Nova estória', new_post_path, class: 'btn btn-primary' %>

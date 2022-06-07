@@ -1,14 +1,15 @@
-<div>
-  <h2><%= @post.title %></h2>
-  <small class="opacity-70 text-nowrap"><%= link_to @post.user.name, profile_path(id: @post.user.profile.id), class: "" %> |
-    <%= @post.created_at.to_date %></small>
+<%= link_to 'Voltar', posts_path, class: "btn btn-primary" %>
 
-  <p><%= @post.body %></p>
-
-  <% if user_signed_in? && current_user == @post.user %>
-    <%= link_to 'Editar', edit_post_path(@post), class: "btn btn-warning" %>
-    <%= link_to 'Deletar', @post, method: :delete, class: "btn btn-warning", data: { confirm: 'Tem certeza?' } %>
-  <% end %>
-
-  <%= link_to 'Voltar', posts_path, class: "btn btn-primary" %>
+<div class="card mb-2 mt-2">
+  <div class="card-body">
+    <h2 class="card-title"><%= @post.title %></h2>
+    <small class="opacity-70 text-nowrap"><%= link_to @post.user.name, profile_path(id: @post.user.profile.id), class: "" %> |
+      <%= @post.created_at.to_date %></small>
+    <p><%= @post.body %></p>
+  </div>
 </div>
+
+<% if user_signed_in? && current_user == @post.user %>
+  <%= link_to 'Editar', edit_post_path(@post), class: "btn btn-warning" %>
+  <%= link_to 'Deletar', @post, method: :delete, class: "btn btn-warning", data: { confirm: 'Tem certeza?' } %>
+<% end %>
