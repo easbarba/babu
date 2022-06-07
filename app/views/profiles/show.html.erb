@@ -1,10 +1,16 @@
-<div>
-  <img alt="" src="https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg" class="img-thumbnail" style="max-width: 100px"/>
-  <h4 class="display-5"><%= @profile.name.capitalize %></h4>
-  <p><%= @profile.bio %></p>
+<section class="card mb-2">
+  <div class="card-body">
+    <div>
+      <h2 class="card-title"><%= @profile.name.capitalize %></h2>
+      <p><%= @profile.bio %></p>
 
-  <% if user_signed_in? %>
-    <%= link_to 'Edit', destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
-    <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: "btn btn-warning" %>
-  <% end %>
-</div>
+      <% if @all_permissions %>
+        <%= link_to 'Edit', edit_profile_path, class: "btn btn-primary" %>
+      <% end %>
+
+      <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: "btn btn-warning" %>
+    </div>
+  </div>
+</section>
+
+

@@ -1,0 +1,26 @@
+<%= form_with(model: profile) do |form| %>
+  <% if profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+        <% profile.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="card mb-2 mt-2">
+    <div class="card-body">
+      <h2 class="card-title"><%= main_title %></h2>
+      <div class="form-group">
+        <%= form.text_field :bio, placeholder: "bio",  class: "form-control" %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit 'Enviar', class: "btn btn-warning btn-block mt-2" %>
+      </div>
+    </div>
+  </div>
+<% end %>
