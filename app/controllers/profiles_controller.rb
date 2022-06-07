@@ -25,13 +25,20 @@ class ProfilesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_profile
-    # create a new profile to just registered user
-    current_user.create_profile! name: current_user.name, bio: '...' if current_user.profile.nil?
+    # anonimous reader display of current profile
+    current_profile = Profile.find params[:id]
 
-    current_profile = Profile.find(params[:id])
+    if user_signed_in?
+      # create a new profile to just registered user
+      current_user.create_profile! name: current_user.name, bio: '...' if current_user.profile.nil?
 
-    @all_permissions = user_signed_in? && current_user.id == current_profile.id
-    @profile = Profile.find(params[:id])
+      # get signed in user profile id instead of params one
+      current_profile = Profile.find(current_user.profile.id)
+
+      @all_permissions = current_user.id == current_profile.id
+    end
+
+    @profile = current_profile
   end
 
   # Only allow a list of trusted parameters through.
