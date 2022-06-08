@@ -1,25 +1,28 @@
-# Depot 
-Ruby on Rails App from the book Agile Web Development with Rails 6
+# Babu
+A Ruby on Rails Kids Microblog. 
 
 # Container
 
-## start all containers 
+### start all containers 
 
 > docker-compose up -d
 
-## deploy database migration 
+### deploy database migration 
 
 > docker-compose exec app bin/rails db:migrate
 
-## seed initial content 
+### seed initial content 
 
 > docker-compose exec app bin/rails db:seed
 
-## run ad-hoc commands
+### run ad-hoc commands
 
-> docker-compose exec app bash 
+> docker-compose exec app sh 
 
-## rebuild main app container
- Mostly needed for additional gems.
+### inspect database
 
+> docker-compose exec database psql -U postgres -d babu_development
+
+### rebuild main app container
+ 
 > docker-compose build app
