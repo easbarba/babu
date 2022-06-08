@@ -20,7 +20,7 @@ text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec accumsa
 
 # Posts
 50.times do
-  users.sample.posts.create! title: "Artigo #{rand(1..101)}",
+  users.sample.posts.create! title: "Estoria #{rand(1..101)}",
                              body: text,
                              created_at: rand(365).days.ago
 end
