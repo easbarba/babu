@@ -1,10 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[show edit update]
 
-  # def index
-  #   @profiles = Profile.all
-  # end
-
   def show; end
 
   def edit; end
@@ -25,16 +21,11 @@ class ProfilesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_profile
-    current_profile = Profile.find params[:id]
+    @profile = Profile.find params[:id]
+    @posts = current_user.posts
 
-    if user_signed_in?
-      # create a new profile to just registered user
-      current_user.create_profile! name: current_user.name, bio: '...' if current_user.profile.nil?
-
-      @all_permissions = current_user.id == current_profile.id
-    end
-
-    @profile = current_profile
+    # user found and is the correct user to edit current profile.
+    @all_permissions = user_signed_in? && current_user.id == @profile.id
   end
 
   # Only allow a list of trusted parameters through.

@@ -11,11 +11,7 @@
                 <li><%= link_to 'Ler código-fonte', 'https://github.com/easbarba/babu', class: 'nav-link px-2' %></li>
             </ul>
 
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                <input type="search" class="form-control" placeholder="Procurar..." aria-label="Search">
-            </form>
-
-            <div class="text-end">
+            <div class="text-end m-2">
                 <% if user_signed_in? %>
                     <%= link_to current_user.name.capitalize, profile_path(current_user.profile.id), class: "btn btn-primary" %>
                 <% else %>
@@ -23,6 +19,10 @@
                     <%= link_to 'Registar', new_user_registration_path, class: "btn btn-primary" %>
                 <% end %>
             </div>
+
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <input type="search" class="form-control" placeholder="Procurar..." aria-label="Search">
+            </form>
         </div>
     </div>
 </header>

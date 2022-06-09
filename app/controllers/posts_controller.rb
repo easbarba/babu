@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     current_page = (params[:page] || 0).to_i
 
     @posts = current_posts.order(created_at: :desc)
-                          .page(current_page).per 5
+                          .page(current_page).per 4
   end
 
   # GET /posts/1
@@ -61,7 +61,7 @@ class PostsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_post
     # current post as anonimous reader
-    current_post = Post.find(params[:id])
+    current_post = Post.find params[:id]
 
     # user is signed in? and is it the current post author?
     @all_permissions = user_signed_in? && current_user.id == current_post.user_id

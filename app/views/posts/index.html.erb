@@ -1,4 +1,8 @@
-<section class="mb-2">
+<% if user_signed_in? %>
+  <%= link_to 'Nova estória', new_post_path, class: 'btn btn-primary' %>
+<% end %>
+
+<section class="mt-4">
   <% @posts.each do |post| %>
     <%= link_to(post, class: 'list-group-item list-group-item-action d-flex gap-3 py-3') do %>
       <img src="https://cdn4.iconfinder.com/data/icons/gadgets-3/130/_Lego-512.png" alt="twbs" class="rounded-circle flex-shrink-0" width="32" height="32">
@@ -12,12 +16,9 @@
     <% end %>
   <% end %>
 </section>
-
-<!-- PAGINATION-BEGIN -->
-<%= link_to_next_page @posts, 'antigas', class: 'btn btn-outline-primary' %>
-<%= link_to_previous_page @posts, 'novas', class: 'btn btn-outline-secondary' %>
-<!-- PAGINATION-END -->
-
-<% if user_signed_in? %>
-  <%= link_to 'Nova estória', new_post_path, class: 'btn btn-primary' %>
-<% end %>
+<div class="m-3">
+  <!-- PAGINATION-BEGIN -->
+  <%= link_to_next_page @posts, 'antigas', class: 'btn btn-outline-primary' %>
+  <%= link_to_previous_page @posts, 'novas', class: 'btn btn-outline-secondary' %>
+  <!-- PAGINATION-END -->
+</div>

@@ -44,7 +44,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create_profile
     # create a new profile to the just registered user.
     current_user.create_profile! name: current_user.name,
-                                 bio: '...'
+                                 bio: 'Sem informações.'
   end
 
   # If you have extra params to permit, append them to the sanitizer.

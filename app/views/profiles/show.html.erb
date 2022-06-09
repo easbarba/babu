@@ -2,7 +2,8 @@
   <div class="card-body">
     <div>
       <h2 class="card-title"><%= @profile.name.capitalize %></h2>
-      <p><%= @profile.bio %></p>
+      <p>Bio: <%= @profile.bio %></p>
+      <p>Estorias: <%= current_user.posts.count %></p>
 
       <% if @all_permissions %>
         <%= link_to 'Editar', edit_profile_path, class: "btn btn-primary" %>
@@ -11,5 +12,3 @@
     </div>
   </div>
 </section>
-
-
