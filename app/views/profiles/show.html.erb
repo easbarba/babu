@@ -3,11 +3,10 @@
     <div>
       <h2 class="card-title"><%= @profile.name.capitalize %></h2>
       <p>Bio: <%= @profile.bio %></p>
-      <p>Estorias: <%= current_user.posts.count %></p>
+      <p>Estorias: <%= @profile.user.posts.count %></p>
 
       <% if @all_permissions %>
         <%= link_to 'Editar', edit_profile_path, class: "btn btn-primary" %>
-        <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: "btn btn-warning" %>
       <% end %>
     </div>
   </div>
