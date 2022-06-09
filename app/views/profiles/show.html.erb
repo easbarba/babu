@@ -2,12 +2,27 @@
   <div class="card-body">
     <div>
       <h2 class="card-title"><%= @profile.name.capitalize %></h2>
-      <p>Bio: <%= @profile.bio %></p>
-      <p>Estorias: <%= @profile.user.posts.count %></p>
+      <p><%= @profile.bio %></p>
 
       <% if @all_permissions %>
-        <%= link_to 'Editar', edit_profile_path, class: "btn btn-primary" %>
+        <%= link_to 'Editar Bio', edit_profile_path, class: "btn btn-primary" %>
       <% end %>
     </div>
+  </div>
+</section>
+
+<section class="mt-4">
+  <h3>Suas estórias (<%= @profile.user.posts.count %>)</h3>
+  <% @posts.each do |post| %>
+    <%= link_to(post, class: 'link-dark') do %>
+      <p><b><%= post.title %></b> <%= post.body.truncate 60 %></p>
+    <% end %>
+  <% end %>
+
+  <div class="">
+    <!-- PAGINATION-BEGIN -->
+    <%= link_to_next_page @posts, 'antigas', class: 'btn btn-outline-primary' %>
+    <%= link_to_previous_page @posts, 'novas', class: 'btn btn-outline-secondary' %>
+    <!-- PAGINATION-END -->
   </div>
 </section>
