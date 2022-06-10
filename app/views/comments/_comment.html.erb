@@ -1,0 +1,6 @@
+<p>
+  <b><%= comment.name %></b>: <%= comment.body %>
+  <% if @post.owned_by? current_user %>
+    <%= link_to 'apagar', post_comment_path(post_id: @post, id: comment), confirm: 'Are you sure?', method: :delete, class: 'small text-muted' %>
+  <% end %>
+</p>

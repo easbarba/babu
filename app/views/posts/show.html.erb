@@ -13,3 +13,15 @@
   <%= link_to 'Editar', edit_post_path(@post), class: "btn btn-warning" %>
   <%= link_to 'Deletar', @post, method: :delete, class: "btn btn-warning", data: { confirm: 'Tem certeza?' } %>
 <% end %>
+
+<section class="m-2">
+
+  <h3>Comentários</h3>
+  <div id="comments">
+    <%= render @post.comments %>
+  </div>
+
+  <% if user_signed_in? %>
+    <%= render 'comments/new' %>
+  <% end %>
+</section>

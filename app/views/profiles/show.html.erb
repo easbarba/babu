@@ -1,28 +1,24 @@
-<section class="card mb-2">
-  <div class="card-body">
-    <div>
-      <h2 class="card-title"><%= @profile.name.capitalize %></h2>
-      <p><%= @profile.bio %></p>
+<div class="row">
+  <section class="col">
+    <h3><%= @profile.name.capitalize %></h3>
+    <p><%= @profile.bio %></p>
 
-      <% if @all_permissions %>
-        <%= link_to 'Editar Bio', edit_profile_path, class: "btn btn-primary" %>
-      <% end %>
-    </div>
-  </div>
-</section>
-
-<section class="mt-4">
-  <h3>Suas estórias (<%= @profile.user.posts.count %>)</h3>
-  <% @posts.each do |post| %>
-    <%= link_to(post, class: 'link-dark') do %>
-      <p><b><%= post.title %></b> <%= post.body.truncate 60 %></p>
+    <% if @all_permissions %>
+      <%= link_to 'Editar Bio', edit_profile_path, class: "btn btn-primary" %>
     <% end %>
-  <% end %>
+  </section>
 
-  <div class="">
-    <!-- PAGINATION-BEGIN -->
+  <section class="col">
+    <h3>Suas estórias (<%= @profile.user.posts.count %>)</h3>
+    <ul>
+      <% @posts.each do |post| %>
+        <li>
+          <%= link_to post.title, post, class: 'link-dark' %>
+          <small class="grey"><%= post.created_at.to_date %></small>
+        </li>
+      <% end  %>
+    </ul>
     <%= link_to_next_page @posts, 'antigas', class: 'btn btn-outline-primary' %>
-    <%= link_to_previous_page @posts, 'novas', class: 'btn btn-outline-secondary' %>
-    <!-- PAGINATION-END -->
-  </div>
-</section>
+    <%= link_to_previous_page @posts, 'novas', class: 'btn btn-outline-primary' %>
+  </section>
+</div>
