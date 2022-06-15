@@ -7,7 +7,7 @@ A Ruby on Rails Kids Microblog.
 
 > docker-compose up -d
 
-### deploy database migration 
+### deploy all database migration 
 
 > docker-compose exec app bin/rails db:migrate
 
@@ -26,3 +26,15 @@ A Ruby on Rails Kids Microblog.
 ### rebuild main app container
  
 > docker-compose build app
+
+
+# TODO
+
+- internationalization
+- slug urls
+- set styles in css files
+- improve routes
+- small views by using helpers functions
+- check for possible SQL injections
+- Kubernetes deployment
+
