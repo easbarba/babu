@@ -3,6 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  after_action :create_profile, only: %(create)
 
   # GET /resource/sign_up
   # def new
@@ -12,7 +13,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    create_profile
   end
 
   # GET /resource/edit
@@ -41,8 +41,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   protected
 
+  # create a new profile to the just registered user.
   def create_profile
-    # create a new profile to the just registered user.
     current_user.create_profile! name: current_user.name,
                                  bio: 'Sem informações.'
   end
