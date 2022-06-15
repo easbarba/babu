@@ -1,28 +1,24 @@
-<header class="p-3 text-white">
-    <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                <%= link_to "Babu", root_path, id: "logo", class: 'navbar-brand bi me-2' %>
-            </a>
+<header class="py-3">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <%= link_to "Babu", root_path, id: "logo", class: 'navbar-brand bi me-2 pb-2' %>
 
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><%= link_to 'Estórias', posts_path, class: "nav-link px-2" %></li>
-                <li><%= link_to 'Ler código-fonte', 'https://github.com/easbarba/babu', class: 'nav-link px-2' %></li>
-            </ul>
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li><%= link_to 'Estórias', posts_path, class: "nav-link px-2" %></li>
+            <li><%= link_to 'Ler código-fonte', 'https://github.com/easbarba/babu', class: 'nav-link px-2' %></li>
+        </ul>
 
-            <div class="text-end m-2">
-                <% if user_signed_in? %>
-                    <%= link_to current_user.name.capitalize, profile_path(current_user.profile.id), class: "btn btn-primary" %>
-                    <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
-                <% else %>
-                    <%= link_to 'Entrar', new_user_session_path, class: "btn btn-outline-primary me-2" %>
-                    <%= link_to 'Registar', new_user_registration_path, class: "btn btn-primary" %>
-                <% end %>
-            </div>
-
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                <input type="search" class="form-control" placeholder="Procurar..." aria-label="Search">
-            </form>
+        <div class="mx-2">
+            <% if user_signed_in? %>
+                <%= link_to current_user.name.capitalize, profile_path(current_user.profile.id), class: "btn btn-success" %>
+                <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+            <% else %>
+                <%= link_to 'Entrar', new_user_session_path, class: "btn btn-outline-primary me-2" %>
+                <%= link_to 'Registar', new_user_registration_path, class: "btn btn-primary" %>
+            <% end %>
         </div>
+
+        <form class="col-12 col-lg-auto" role="search">
+            <input type="search" class="form-control" placeholder="Procurar..." aria-label="Search">
+        </form>
     </div>
 </header>
