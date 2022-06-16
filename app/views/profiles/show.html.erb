@@ -1,5 +1,5 @@
 <div class="row">
-  <section class="col">
+  <section class="col-sm">
     <h3><%= @profile.name.capitalize %></h3>
     <p><%= @profile.bio %></p>
 
@@ -8,7 +8,7 @@
     <% end %>
   </section>
 
-  <section class="col">
+  <section class="col-sm" id="my-stories">
     <h3>Suas estórias (<%= @profile.user.posts.count %>)</h3>
     <ul>
       <% @posts.each do |post| %>
@@ -18,7 +18,5 @@
         </li>
       <% end  %>
     </ul>
-    <%= link_to_next_page @posts, 'antigas', class: 'btn btn-outline-primary' %>
-    <%= link_to_previous_page @posts, 'novas', class: 'btn btn-outline-primary' %>
   </section>
 </div>

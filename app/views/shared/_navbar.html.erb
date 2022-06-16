@@ -1,5 +1,5 @@
 <header class="py-3">
-    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+    <div class="mx-4 d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <%= link_to "Babu", root_path, id: "logo", class: 'navbar-brand bi me-2 pb-2' %>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -9,11 +9,11 @@
 
         <div class="mx-2">
             <% if user_signed_in? %>
-                <%= link_to current_user.name.capitalize, profile_path(current_user.profile.id), class: "btn btn-success" %>
-                <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+                <%= link_to current_user.name.capitalize, profile_path(current_user.profile.id), class: "btn btn-outline-dark" %>
+                <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: "btn btn-outline-danger" %>
             <% else %>
                 <%= link_to 'Entrar', new_user_session_path, class: "btn btn-outline-primary me-2" %>
-                <%= link_to 'Registar', new_user_registration_path, class: "btn btn-primary" %>
+                <%= link_to 'Registar', new_user_registration_path, class: "btn btn-success btn-registration" %>
             <% end %>
         </div>
 

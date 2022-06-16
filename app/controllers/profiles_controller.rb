@@ -22,10 +22,8 @@ class ProfilesController < ApplicationController
   private
 
   def set_posts
-    current_page = (params[:page] || 0).to_i
-
-    @posts = @profile.user.posts.order(created_at: :desc)
-                     .page(current_page).per 4
+    p = Profile.find params[:id]
+    @posts = @profile.user.posts.user(p.user_id)
   end
 
   # Use callbacks to share common setup or constraints between actions.

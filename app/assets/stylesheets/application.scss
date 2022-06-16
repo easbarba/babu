@@ -14,6 +14,22 @@
  *= require_self
  */
 
+#main-site {
+    margin: 1em;
+}
+
+h {
+    color: white;
+    background-color: #873e23;
+}
+
+
+header a.btn-registration {
+    color: white;
+    background-color: #873e23;
+    border-color: #873e23;
+}
+
 @media (max-width: 768px) {
     form {
         margin-top: 1em;

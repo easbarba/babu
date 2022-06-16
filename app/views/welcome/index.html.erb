@@ -1,12 +1,21 @@
-<div class="jumbotron">
+<section class="jumbotron">
   <h1 class="display-4">Olá, mundo!</h1>
   <p class="lead">Nunc pharetra sapien in eros iaculis.</p>
   <hr class="my-4">
   <p>Morbi eu justo leo. Etiam pharetra vulputate mi eget consectetur. Nunc
-  pharetra sapien in eros iaculis, nec laoreet turpis luctus. Sed pharetra lacus
-  ac ligula convallis accumsan.</p>
+    pharetra sapien in eros iaculis, nec laoreet turpis luctus. Sed pharetra lacus
+    ac ligula convallis accumsan.</p>
+</section>
 
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" href="<%= posts_path %>" role="button">Leia as estorias</a>
-  </p>
-</div>
+<section class="m-1 row" id="welcome-posts">
+  <% @posts.each do |post| %>
+    <div class="col-sm card m-1">
+      <%= link_to post, class: "card-body" do %>
+        <h5 class="card-title"><%= post.title %></h5>
+        <p><%= post.body.truncate 100 %></p>
+      <% end  %>
+    </div>
+  <% end  %>
+</section>
+
+<%= link_to 'Leia mais estorias', posts_path, class: 'btn btn-outline-dark m-1' %>

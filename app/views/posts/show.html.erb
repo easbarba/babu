@@ -1,4 +1,4 @@
-<%= link_to 'Voltar', posts_path, class: "btn btn-primary" %>
+<%= link_to 'Voltar', posts_path, class: "btn btn-outline-primary" %>
 
 <div class="card mb-2 mt-2">
   <div class="card-body">
@@ -9,19 +9,20 @@
   </div>
 </div>
 
-<% if @all_permissions %>
-  <%= link_to 'Editar', edit_post_path(@post), class: "btn btn-warning" %>
-  <%= link_to 'Deletar', @post, method: :delete, class: "btn btn-warning", data: { confirm: 'Tem certeza?' } %>
+<% if has_all_permissions? %>
+  <%= link_to 'Editar', edit_post_path(@post), class: "btn btn-outline-success" %>
+  <%= link_to 'Deletar', @post, method: :delete, class: "btn btn-outline-danger", data: { confirm: 'Tem certeza?' } %>
 <% end %>
 
-<section class="m-2">
-
+<section class="mt-2">
   <h3>Comentários</h3>
-  <div id="comments">
+  <% if @post.comments.any? %>
     <%= render @post.comments %>
-  </div>
+  <% end %>
 
   <% if user_signed_in? %>
     <%= render 'comments/new' %>
+  <% else %>
+    <p>Nenhum comentário ainda. <%= link_to 'Entre', new_user_session_path %> e seja o primeiro a comentar!</p>
   <% end %>
 </section>

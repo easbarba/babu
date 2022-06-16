@@ -4,6 +4,10 @@ class Post < ApplicationRecord
 
   validates :title, :body, :user, presence: true
 
+  scope :downroad, -> { order('created_at DESC') }
+  scope :uproad, -> { order('created_at ASC') }
+  scope :user, ->(id) { where("user_id = #{id}") }
+
   def published?
     published_at.present?
   end
