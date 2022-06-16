@@ -30,11 +30,10 @@ A Ruby on Rails Kids Microblog.
 
 # TODO
 
+- stories category
+- more tests
 - internationalization
 - slug urls
-- set styles in css files
-- improve routes
-- small views by using helpers functions
-- check for possible SQL injections
-- Kubernetes deployment
+- slick routes
+- production improvements & proper cloud deployment
 
