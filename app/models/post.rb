@@ -6,7 +6,7 @@ class Post < ApplicationRecord
 
   scope :downroad, -> { order('created_at DESC') }
   scope :uproad, -> { order('created_at ASC') }
-  scope :user, ->(id) { where("user_id = #{id}") }
+  scope :user, ->(id) { where(['user_id = ?', id]) }
 
   def published?
     published_at.present?
