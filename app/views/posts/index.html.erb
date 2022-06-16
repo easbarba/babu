@@ -1,6 +1,4 @@
-<% if user_signed_in? %>
-  <%= link_to 'Nova estória', new_post_path, class: 'btn btn-primary' %>
-<% end %>
+<%= link_to 'Nova estória', new_post_path, class: 'btn btn-primary' %>
 
 <section class="mt-4">
   <% @posts.each do |post| %>
@@ -17,9 +15,7 @@
   <% end %>
 </section>
 
-<div class="mt-3">
-  <!-- PAGINATION-BEGIN -->
+<section class="mt-3">
   <%= link_to_next_page @posts, 'antigas', class: 'btn btn-outline-primary' %>
   <%= link_to_previous_page @posts, 'novas', class: 'btn btn-outline-secondary' %>
-  <!-- PAGINATION-END -->
-</div>
+</section>

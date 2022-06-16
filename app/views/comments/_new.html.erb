@@ -1,9 +1,9 @@
 <%= form_with(model: @post.comments.new, url: post_comments_path(@post), local: true) do |form| %>
   <div class="form-group">
-      <%= form.text_area :body, placeholder: 'Adicione um comentario', class: 'form-control' %>
+    <%= form.text_area :body, placeholder: 'Deixe seu comentario', class: 'form-control' %>
   </div>
 
   <div class="actions">
-      <%= form.submit 'Enviar comentário', class: 'btn btn-primary my-2' %>
+    <%= form.submit 'Enviar', class: 'btn btn-primary my-2' %>
   </div>
 <% end %>

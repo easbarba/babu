@@ -20,9 +20,5 @@
     <%= render @post.comments %>
   <% end %>
 
-  <% if user_signed_in? %>
-    <%= render 'comments/new' %>
-  <% else %>
-    <p>Nenhum comentário ainda. <%= link_to 'Entre', new_user_session_path %> e seja o primeiro a comentar!</p>
-  <% end %>
+  <%= render 'comments/new' %>
 </section>

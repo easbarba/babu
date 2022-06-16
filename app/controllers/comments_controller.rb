@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :load_post, only: %i[destroy new create]
+  before_action :authenticate_user!, only: %i[create destroy]
 
   def new; end
 
