@@ -1,5 +1,5 @@
 # Babu
-A Ruby on Rails Kids Microblog. 
+A Ruby on Rails Family Microblog. 
 
 # Container
 
@@ -26,7 +26,6 @@ A Ruby on Rails Kids Microblog.
 ### rebuild main app container
  
 > docker-compose build app
-
 
 # TODO
 

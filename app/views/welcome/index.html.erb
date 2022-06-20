@@ -1,5 +1,5 @@
 <section class="jumbotron">
-  <h1 class="display-4">Olá, mundo!</h1>
+  <h1 class="display-4"><% t('.title') %></h1>
   <p class="lead">Nunc pharetra sapien in eros iaculis.</p>
   <hr class="my-4">
   <p>Morbi eu justo leo. Etiam pharetra vulputate mi eget consectetur. Nunc
@@ -12,10 +12,10 @@
     <div class="col-sm card m-1">
       <%= link_to post, class: "card-body" do %>
         <h5 class="card-title"><%= post.title %></h5>
-        <p><%= post.body.truncate 100 %></p>
+        <p><%= strip_tags post.body.truncate 100 %></p>
       <% end  %>
     </div>
   <% end  %>
 </section>
 
-<%= link_to 'Leia mais estorias', posts_path, class: 'btn btn-outline-dark m-1' %>
+<%= link_to 'Read more stories', posts_path, class: 'btn btn-outline-dark m-1' %>
